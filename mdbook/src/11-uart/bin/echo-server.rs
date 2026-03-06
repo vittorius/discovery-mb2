@@ -26,6 +26,11 @@ fn main() -> ! {
 
     loop {
         let char: char = serial.read().unwrap().into();
-        rprintln!("{}", char);
+        if char == '\r' {
+            serial.write(b'\r').unwrap();
+            serial.write(b'\n').unwrap();
+        } else {
+            serial.write(char as u8).unwrap();
+        }
     }
 }

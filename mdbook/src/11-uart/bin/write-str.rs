@@ -1,11 +1,17 @@
 #![no_main]
 #![no_std]
 
+use core::fmt::Write;
+
+use cortex_m::asm::wfi;
 use cortex_m_rt::entry;
 use panic_rtt_target as _;
-use rtt_target::{rprintln, rtt_init_print};
+use rtt_target::rtt_init_print;
 
-use microbit::hal::uarte::{self, Baudrate, Parity};
+use microbit::{
+    hal::uarte,
+    hal::uarte::{Baudrate, Parity},
+};
 
 use serial_setup::UartePort;
 
@@ -24,8 +30,10 @@ fn main() -> ! {
         UartePort::new(serial)
     };
 
+    serial.write_str("The quick brown fox jumps over the lazy dog.\r\n").unwrap();
+    serial.flush().unwrap();
+
     loop {
-        let char: char = serial.read().unwrap().into();
-        rprintln!("{}", char);
+        wfi();
     }
 }

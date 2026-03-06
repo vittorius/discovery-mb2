@@ -15,18 +15,20 @@ fn main() -> ! {
     let mut timer = Timer::new(board.TIMER0);
     let mut display = Display::new(board.display_pins);
     let light_it_all = [
+        [0, 1, 0, 1, 0],
         [1, 1, 1, 1, 1],
         [1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1],
-        [1, 1, 1, 1, 1],
+        [0, 1, 1, 1, 0],
+        [0, 0, 1, 0, 0],
     ];
+
+    display.set_refresh_rate(2);
 
     loop {
         // Show light_it_all for 1000ms
         display.show(&mut timer, light_it_all, 1000);
-        // clear the display again
-        display.clear();
-        timer.delay_ms(1000_u32);
+        // // clear the display again
+        // display.clear();
+        // timer.delay_ms(1000_u32);
     }
 }

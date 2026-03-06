@@ -19,3 +19,15 @@ features = ["inline-asm", "critical-section-single-core"]
 [dependencies.serial-setup]
 version = "0.1.0"
 path = "../serial-setup"
+
+[[bin]]
+name = "write-str"
+path = "bin/write-str.rs"
+
+[[bin]]
+name = "echo-server"
+path = "bin/echo-server.rs"
+
+[[bin]]
+name = "reverse-string"
+path = "bin/reverse-string.rs"
