@@ -3,6 +3,7 @@
 #![no_std]
 
 use cortex_m_rt::entry;
+use embedded_hal::delay::DelayNs;
 use panic_rtt_target as _;
 use rtt_target::{rprintln, rtt_init_print};
 
@@ -36,6 +37,7 @@ fn main() -> ! {
             let (x, y, z) = sensor.acceleration().unwrap().xyz_mg();
             // RTT instead of normal print
             rprintln!("Acceleration: x {} y {} z {}", x, y, z);
+            timer0.delay_ms(1000);
         }
     }
 }
