@@ -21,3 +21,7 @@ features = ["inline-asm", "critical-section-single-core"]
 [dependencies.serial-setup]
 version = "0.1.0"
 path = "../serial-setup"
+
+[[bin]]
+name = "solution"
+path = "bin/solution.rs"
