@@ -51,6 +51,7 @@ fn main() -> ! {
                 buffer.clear();
             }
         }
+        serial.flush().unwrap();
         
 
         // TODO Receive a user request. Each user request ends with ENTER
