@@ -25,7 +25,7 @@ static GPIOTE_PERIPHERAL: LockMut<gpiote::Gpiote> = LockMut::new();
 static DEBOUNCE_TIMER: LockMut<hal::Timer<pac::TIMER0>> = LockMut::new();
 
 // 100ms at 1MHz count rate.
-const DEBOUNCE_TIME: u32 = 100 * 1_000_000 / 1000;
+const DEBOUNCE_TIME: u32 = 300 * 1_000_000 / 1000;
 
 #[interrupt]
 fn GPIOTE() {

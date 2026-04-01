@@ -11,8 +11,13 @@ embedded-hal = "1.0.0"
 microbit-v2 = "0.16"
 panic-rtt-target = "0.2"
 rtt-target = "0.6"
+libm = "0.2.16"
 
 
 [dependencies.cortex-m]
 version = "0.7"
 features = ["critical-section-single-core"]
+
+[[bin]]
+name = "solution"
+path = "bin/solution.rs"
