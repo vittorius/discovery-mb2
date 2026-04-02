@@ -21,3 +21,7 @@ features = ["critical-section-single-core"]
 [[bin]]
 name = "solution"
 path = "bin/solution.rs"
+
+[[bin]]
+name = "sandbox"
+path = "bin/sandbox.rs"
