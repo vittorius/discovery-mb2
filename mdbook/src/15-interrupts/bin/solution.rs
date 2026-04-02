@@ -3,7 +3,7 @@
 
 use cortex_m::asm::wfi;
 use cortex_m_rt::entry;
-use embedded_hal::{delay::DelayNs, digital::OutputPin};
+use embedded_hal::{delay::DelayNs, digital::StatefulOutputPin};
 use libm::floor;
 use microbit::{
     hal::{gpio::Level, Timer},
@@ -27,9 +27,9 @@ fn main() -> ! {
             rprintln!("period: {}", period);
 
             for _ in 0..(250_000 / period) {
-                speaker_pin.set_high().unwrap();
+                speaker_pin.toggle().unwrap();
                 timer.delay_us(period / 2);
-                speaker_pin.set_low().unwrap();
+                speaker_pin.toggle().unwrap();
                 timer.delay_us(period / 2);
             }
         }
