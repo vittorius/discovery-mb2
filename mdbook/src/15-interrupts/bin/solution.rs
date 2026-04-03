@@ -74,6 +74,7 @@ impl Siren {
         } else {
             self.half_period_cycles_left -= 1;
             self.speaker_pin.toggle();
+            self.timer.reset_event();
             self.timer.start(self.period_us / 2); // timer fires each 1/2 of a sound frequency period
         }
     }
