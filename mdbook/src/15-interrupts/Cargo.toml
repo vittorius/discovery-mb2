@@ -25,3 +25,7 @@ path = "bin/solution.rs"
 [[bin]]
 name = "sandbox"
 path = "bin/sandbox.rs"
+
+[[bin]]
+name = "pwm"
+path = "bin/pwm.rs"
